@@ -3,6 +3,8 @@ textarea:focus, input:focus{
 }
 html {
   box-sizing: border-box;
+  height: 100svh;
+  width: 100vw;
 }
 *, *:before, *:after {
   box-sizing: inherit;
