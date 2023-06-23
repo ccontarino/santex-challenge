@@ -14,8 +14,6 @@ export function Header() {
   const Cart = styled.img`
     flex: 0.8;
     height: 40px;
-    
-    
   `;
   const Box = styled.div`
     display: flex;
@@ -28,7 +26,6 @@ export function Header() {
           src="https://santex.wpengine.com/wp-content/uploads/2019/02/logo-santex@3x.png"
           alt="logo"
         />
-
         <Input placeholder="Search.."></Input>
         {/* <Cart src={cart} /> */}
       </Box>
