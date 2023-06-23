@@ -2,9 +2,9 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 interface ProductComponentProps {
-  cardImage: string;
-  cardDescription: string;
-  cardPrice: number;
+  cardImage?: string;
+  cardDescription?: string;
+  cardPrice?: number;
 }
 const Product = ({
   cardImage = 'https://http2.mlstatic.com/D_NQ_NP_2X_757528-MLA40747806690_022020-F.webp',
