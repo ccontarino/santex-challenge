@@ -10,9 +10,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { saveToLocalStorage } from './localStorage/localStorage';
+import { API_URL } from './constants';
 
 const commerceLink = createHttpLink({
-  uri: 'https://demo.vendure.io/shop-api',
+  uri: API_URL,
   headers: {
     authorization: localStorage.getItem('Auth-Token')
       ? `Bearer ${localStorage.getItem('Auth-Token')}`
@@ -26,7 +28,8 @@ const afterwareLink = new ApolloLink((operation, forward) => {
     const authHeader = context.response.headers.get('Vendure-Auth-Token');
 
     if (authHeader) {
-      localStorage.setItem('Auth-Token', authHeader);
+      // localStorage.setItem('Auth-Token', authHeader);
+      saveToLocalStorage('Auth-Token', authHeader);
     }
     return response;
   });
@@ -50,3 +53,6 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
+
+
+reportWebVitals(console.log);

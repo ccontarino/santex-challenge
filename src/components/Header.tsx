@@ -4,12 +4,19 @@ import { Input } from './Input/Input';
 export function Header() {
   const Header = styled.header`
     background: red;
-    padding: 20px 20px;
+    padding: 10px 10px;
+    @media (min-width: 768px) {
+      padding: 20px 20px;
+    }
+    width: 100%;
     box-sizing: border-box;
   `;
   const Image = styled.img`
-    height: 50px;
-    flex: 0.5;
+    height: 40px;
+    flex: 1;
+    @media (min-width: 768px) {
+      flex: 0.5;
+    }
   `;
   const Cart = styled.img`
     flex: 0.8;
@@ -17,6 +24,7 @@ export function Header() {
   `;
   const Box = styled.div`
     display: flex;
+    width: 100%;
   `;
 
   return (
