@@ -1,18 +1,13 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
+import SlideList from '../SlideList/SlideList';
+import { ProductVariant } from '../../types/types';
 
-interface ProductComponentProps {
-  productImage?: string;
-  productDescription?: string;
-  productTitle?: string;
-  productPrice?: number;
-  id?: number;
-}
 const ProductContainer = styled.div`
   width: 250px;
   padding: 10px;
-  height: 350px;
-  max-height: 350px;
+  height: 450px;
+  max-height: 400px;
   border: 1px solid #ccc;
   overflow: hidden;
   transition: box-shadow 0.3s;
@@ -68,25 +63,44 @@ const PriceContainer = styled.div`
   margin-top: 10px;
   justify-content: flex-end;
 `;
+interface ProductComponentProps {
+  productImage?: string;
+  productDescription?: string;
+  productTitle?: string;
+  productPrice?: number;
+  id?: number;
+  variants?: ProductVariant[];
+}
 
 const ProductComponent = ({
   productImage,
   productDescription,
   productTitle,
   productPrice,
+  variants = [],
   id,
 }: ProductComponentProps) => {
+  const [imageBackground, setImageBackground] = React.useState('');
+  const [variantSelected, setVariantSelected] = React.useState(variants[0]);
+
   return (
     <ProductContainer key={id}>
-      <>
+      <div style={{ marginBottom: 10 }}>
         <ProductImage src={productImage} loading="lazy" />
         <HorizontalLine />
         <ProductTitle>{productTitle}</ProductTitle>
-      </>
+        <SlideList
+          variantSelected={variantSelected}
+          setVariant={setVariantSelected}
+          variants={variants}
+        />
+      </div>
       <ProductContent>
         <ProductDescription>{productDescription}</ProductDescription>
         <PriceContainer>
-          <CardPrice> Buy ${productPrice}</CardPrice>
+          <CardPrice>{` Buy $${
+            variantSelected ? variantSelected.price : ''
+          }`}</CardPrice>
         </PriceContainer>
       </ProductContent>
     </ProductContainer>

@@ -30,17 +30,19 @@ export function ProductList() {
   return (
     <Container>
       {data ? (
-        data?.products?.items.map(({ id, description, name, assets }) => (
-          <Box>
-            <Product
-              key={id}
-              productTitle={name}
-              productDescription={description}
-              productImage={assets[0]?.source}
-              productPrice={20}
-            />
-          </Box>
-        ))
+        data?.products?.items.map(
+          ({ id, description, name, assets, variants }) => (
+            <Box>
+              <Product
+                key={id}
+                productTitle={name}
+                productDescription={description}
+                productImage={assets[0]?.source}
+                variants={variants}
+              />
+            </Box>
+          )
+        )
       ) : (
         <Box>
           <Loading />
