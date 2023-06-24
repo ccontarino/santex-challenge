@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Product from './Card/Card';
+import Product from './Product/Product';
 import { useQuery } from '@apollo/client';
 import { useEffect } from 'react';
 import { GET_PRODUCTS } from '../services/ProductQuery';
@@ -34,9 +34,10 @@ export function ProductList() {
           <Box>
             <Product
               key={id}
-              cardTitle={name}
-              cardDescription={description}
-              cardImage={assets[0]?.source}
+              productTitle={name}
+              productDescription={description}
+              productImage={assets[0]?.source}
+              productPrice={20}
             />
           </Box>
         ))
