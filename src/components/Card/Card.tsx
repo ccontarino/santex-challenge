@@ -22,13 +22,18 @@ const Card = styled.div`
 const CardImage = styled.img`
   width: 100%;
   height: 150px;
-  object-fit: contain;
+  max-height: 120px;
+  object-fit: cover;
 `;
 const CardContent = styled.div`
   padding: 16px;
 `;
 const CardDescription = styled.div`
   font-size: 1em;
+  max-width: 150px;
+  text-overflow: ellipsis;
+  height: 2em;
+  white-space: nowrap;
   margin-bottom: 8px;
 `;
 const CardPrice = styled.div`

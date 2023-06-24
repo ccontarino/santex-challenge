@@ -26,7 +26,7 @@ export function ProductList() {
       {data &&
         data.products.items.map(({ id, description, name, assets }) => (
           <Product
-            cardDescription={description}
+            cardDescription={name}
             cardImage={assets[0]?.source}
           />
         ))}
