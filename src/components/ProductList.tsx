@@ -4,12 +4,18 @@ import { useQuery } from '@apollo/client';
 import { useEffect } from 'react';
 import { GET_PRODUCTS } from '../services/ProductQuery';
 import { Product as ProductData } from '../Interface/Product';
+import Loading from './Loading/Loading';
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-gap: 12px;
-  padding: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px;
+  height: 100vh;
+`;
+const Box = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export function ProductList() {
@@ -23,13 +29,22 @@ export function ProductList() {
 
   return (
     <Container>
-      {data &&
-        data.products.items.map(({ id, description, name, assets }) => (
-          <Product
-            cardDescription={name}
-            cardImage={assets[0]?.source}
-          />
-        ))}
+      {data ? (
+        data?.products?.items.map(({ id, description, name, assets }) => (
+          <Box>
+            <Product
+              key={id}
+              cardTitle={name}
+              cardDescription={description}
+              cardImage={assets[0]?.source}
+            />
+          </Box>
+        ))
+      ) : (
+        <Box>
+          <Loading />
+        </Box>
+      )}
     </Container>
   );
 }
