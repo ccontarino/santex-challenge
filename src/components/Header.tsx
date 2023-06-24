@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Input } from './Input/Input';
+import cartPNG from '../assets/cart_shopping.svg';
 // import cart from '../assets/cart-svgrepo-com.svg';
 const HeaderStyle = styled.header`
   background: red;
@@ -18,8 +19,10 @@ const Image = styled.img`
   }
 `;
 const Cart = styled.img`
-  flex: 0.8;
+  flex: 0.2;
+  mouse: pointer;
   height: 40px;
+  width: 40px;
 `;
 const Box = styled.div`
   display: flex;
@@ -33,8 +36,10 @@ export function Header() {
           src="https://santex.wpengine.com/wp-content/uploads/2019/02/logo-santex@3x.png"
           alt="logo"
         />
+
         <Input placeholder="Search.."></Input>
-        {/* <Cart src={cart} /> */}
+
+        <Cart src={cartPNG} alt="cart"></Cart>
       </Box>
       {/* <div>$ 0</div> */}
     </HeaderStyle>

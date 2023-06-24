@@ -47,10 +47,16 @@ const CardTitle = styled.div`
   font-weight: bold;
   padding-bottom: 8px;
 `;
-const CardPrice = styled.div`
+const CardPrice = styled.button`
   font-size: 18px;
   text-align: right;
-  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 8px;
+  &:hover {
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  }
 `;
 const HorizontalLine = styled.div`
   border-bottom: 1px solid #ccc;
@@ -80,7 +86,7 @@ const CardComponent = ({
       <CardContent>
         <CardDescription>{cardDescription}</CardDescription>
         <PriceContainer>
-          <CardPrice>${cardPrice}</CardPrice>
+          <CardPrice> Buy ${cardPrice}</CardPrice>
         </PriceContainer>
       </CardContent>
     </Card>
