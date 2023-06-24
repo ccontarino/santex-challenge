@@ -6,6 +6,8 @@
  */
 function saveToLocalStorage(key: string, value: any): void {
   try {
+    console.log('key', key);
+    console.log('value', value);
     localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
     console.error('Error saving to localStorage:', error);

@@ -46,7 +46,7 @@ const CardComponent = ({
 }: CardComponentProps) => {
   return (
     <Card>
-      <CardImage src={cardImage} />
+      <CardImage src={cardImage} loading="lazy" />
       <HorizontalLine />
       <CardContent>
         <CardDescription>{cardDescription}</CardDescription>

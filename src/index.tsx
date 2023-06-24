@@ -31,6 +31,7 @@ const afterwareLink = new ApolloLink((operation, forward) => {
       // localStorage.setItem('Auth-Token', authHeader);
       saveToLocalStorage('Auth-Token', authHeader);
     }
+    console.log('response', response);
     return response;
   });
 });
@@ -54,5 +55,4 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-
-reportWebVitals(console.log);
+// reportWebVitals(console.log);
