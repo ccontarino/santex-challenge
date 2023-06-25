@@ -5,7 +5,9 @@ import { useEffect } from 'react';
 import { GET_PRODUCTS } from '../../graphql/queries';
 import { Product as ProductData } from '../../Interfaces/Product';
 import Loading from '../Loading/Loading';
-
+import { MyContext } from '../../Context/Context';
+import { useContext } from 'react';
+import { UPDATE_PRODUCTS } from '../../Context/constantsContext';
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -20,17 +22,22 @@ const Box = styled.div`
 
 export function ProductList() {
   const { loading, error, data } = useQuery<ProductData>(GET_PRODUCTS);
-
+  const {
+    dispatch,
+    state: { products },
+  } = useContext(MyContext);
   useEffect(() => {
     if (data) {
-      console.log('data', data);
+      dispatch({ type: UPDATE_PRODUCTS, payload: data });
+
+      // updateProducts(data);
     }
   }, [data, loading, error]);
 
   return (
     <Container>
-      {data ? (
-        data?.products?.items.map(
+      {products ? (
+        products?.products?.items.map(
           ({ id, description, name, assets, variants }, index) => (
             <Box>
               <Product

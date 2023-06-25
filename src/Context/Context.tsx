@@ -1,24 +1,28 @@
-import React, { useState, createContext, ReactNode } from 'react';
+import React, { ReactNode, createContext, useReducer } from 'react';
 import { Product } from '../Interfaces/Product';
+import { reducer } from './reducer';
+
+const initialState = {
+  products: null as Product | null,
+};
+
 interface MyContextProviderProps {
   children: ReactNode;
 }
-const MyContext = createContext({});
 
-export const MyContextProvider = ({ children }: MyContextProviderProps) => {
-  const [products, setProducts] = useState<Product | null>(null);
+const MyContext = createContext({
+  state: initialState,
+  dispatch: (action: any) => {},
+});
 
-  const updateProducts = (newProducts: Product) => {
-    setProducts(newProducts);
-  };
-
-  const contextValues = {
-    products,
-  };
+const MyContextProvider = ({ children }: MyContextProviderProps) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <MyContext.Provider value={contextValues}>{children}</MyContext.Provider>
+    <MyContext.Provider value={{ state, dispatch }}>
+      {children}
+    </MyContext.Provider>
   );
 };
 
-export default MyContext;
+export { MyContext, MyContextProvider };
