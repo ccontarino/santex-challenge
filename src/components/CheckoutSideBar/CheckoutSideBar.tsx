@@ -4,6 +4,7 @@ import { MyContext } from '../../Context/Context';
 import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
 import Close from '../Close/Close';
 import useStateWithStorage from '../../hooks/useStateWithStorage';
+import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
 
 const openAnimation = keyframes`
   from {
@@ -29,9 +30,10 @@ const CheckoutSideBarWrapper = styled.div<{ isOpen: boolean }>`
   right: 0;
   border-left: 1px solid #ccc;
   border-radius: 8px 0 0 8px;
-  width: 300px;
-  padding: 30px 20px;
+  width: 400px;
+  padding: 30px 15px;
   height: 100vh;
+  overflow-y: auto;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
   background-color: #f2f2f2;
   transform: translateX(100%);
@@ -56,6 +58,7 @@ const CheckoutSideBar = () => {
       <Close onClick={handleToggle}></Close>
       {/* <ToggleButton onClick={handleToggle}>Toggle</ToggleButton> */}
       <h2>Order Checkout</h2>
+      <CheckoutProduct />
     </CheckoutSideBarWrapper>
   );
 };
