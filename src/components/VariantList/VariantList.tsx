@@ -7,6 +7,13 @@ interface SelectComponentProps {
   variantSelected?: ProductVariant;
   setVariant: Function;
 }
+const Select = styled.select`
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 16px;
+  max-width: 100%;
+`;
 
 function SelectComponent({
   variants,
@@ -23,16 +30,8 @@ function SelectComponent({
     setVariant(variant);
   };
 
-  const Select = styled.select`
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-top: 8px;
-    font-size: 16px;
-    max-width: 100%;
-  `;
-
   const renderVariant = (variantProp: ProductVariant[]) => {
-    return variantProp?.map((variant) => {
+    return variantProp?.map((variant, index) => {
       return (
         <option
           // onClick={() => setVariant && setVariant(variant)}

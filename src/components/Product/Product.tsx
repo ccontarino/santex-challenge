@@ -85,7 +85,7 @@ const ProductComponent = ({
   const [variantSelected, setVariantSelected] = React.useState(variants[0]);
 
   return (
-    <ProductContainer key={id}>
+    <ProductContainer>
       <div style={{ marginBottom: 10 }}>
         <ProductImage src={productImage} loading="lazy" />
         <HorizontalLine />

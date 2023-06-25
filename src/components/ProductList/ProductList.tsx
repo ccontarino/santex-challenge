@@ -31,10 +31,10 @@ export function ProductList() {
     <Container>
       {data ? (
         data?.products?.items.map(
-          ({ id, description, name, assets, variants }) => (
+          ({ id, description, name, assets, variants }, index) => (
             <Box>
               <Product
-                key={id}
+                key={id + index}
                 productTitle={name}
                 productDescription={description}
                 productImage={assets[0]?.source}
