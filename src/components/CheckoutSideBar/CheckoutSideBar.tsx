@@ -5,6 +5,7 @@ import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
 import Close from '../Close/Close';
 import useStateWithStorage from '../../hooks/useStateWithStorage';
 import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
+import CheckoutProductList from '../CheckoutProductList/CheckoutProductList';
 
 const openAnimation = keyframes`
   from {
@@ -58,7 +59,8 @@ const CheckoutSideBar = () => {
       <Close onClick={handleToggle}></Close>
       {/* <ToggleButton onClick={handleToggle}>Toggle</ToggleButton> */}
       <h2>Order Checkout</h2>
-      <CheckoutProduct />
+      {/* <CheckoutProduct /> */}
+      <CheckoutProductList />
     </CheckoutSideBarWrapper>
   );
 };

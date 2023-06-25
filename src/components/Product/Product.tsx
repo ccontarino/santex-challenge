@@ -9,7 +9,7 @@ import { MyContext } from '../../Context/Context';
 import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
 import useStateWithStorage from '../../hooks/useStateWithStorage';
 import { GET_ORDER_BY_ID } from '../../graphql/queries';
-import { CheckoutProduct } from '../../Interfaces/CheckoutProduct.Iterface';
+import { CheckoutProduct } from '../../Interfaces/CheckoutProduct.Interface';
 
 const ProductContainer = styled.div`
   width: 250px;
