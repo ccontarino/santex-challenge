@@ -4,5 +4,5 @@ export interface CheckoutProduct {
   productID: string;
   variantID: string;
   quantity: number;
-  orderID: Order;
+  order: Order;
 }

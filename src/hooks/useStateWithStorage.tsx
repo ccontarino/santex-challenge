@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useStateWithStorage(
+export default function useStateWithStorage<T>(
   key: string,
   defaultValue: unknown
 ) {

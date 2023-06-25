@@ -45,6 +45,7 @@ export function ProductList() {
                 productDescription={description}
                 productImage={assets[0]?.source}
                 variants={variants}
+                id={id}
               />
             </Box>
           )

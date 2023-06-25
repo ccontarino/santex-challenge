@@ -9,6 +9,7 @@ import { MyContext } from '../../Context/Context';
 import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
 import useStateWithStorage from '../../hooks/useStateWithStorage';
 import { GET_ORDER_BY_ID } from '../../graphql/queries';
+import { CheckoutProduct } from '../../Interfaces/CheckoutProduct.Iterface';
 
 const ProductContainer = styled.div`
   width: 250px;
@@ -74,7 +75,7 @@ interface ProductComponentProps {
   productImage?: string;
   productDescription?: string;
   productTitle?: string;
-  id?: number;
+  id: string;
   variants?: ProductVariant[];
 }
 
@@ -87,10 +88,10 @@ const ProductComponent = ({
 }: ProductComponentProps) => {
   const [variantSelected, setVariantSelected] = useState(variants[0]);
   const [addItemToOrder, { data, error }] = useMutation(ADD_ITEM_TO_ORDER);
-  const [checkoutOrders, setCheckoutOrders] = useStateWithStorage(
-    'checkoutOrders',
-    []
-  );
+  const [checkoutOrders, setCheckoutOrders] = useStateWithStorage<
+    CheckoutProduct[]
+  >('checkoutOrders', []);
+
   const [getOrderByID, { data: orderResponse, orderError, orderLoading }]: any =
     useLazyQuery(GET_ORDER_BY_ID);
   const {
@@ -116,9 +117,16 @@ const ProductComponent = ({
     if (data) {
       console.log('addItemToOrder response::', data);
       dispatch({ type: UPDATE_SLIDE_BAR, payload: true });
-      setCheckoutOrders([...checkoutOrders, data.addItemToOrder]);
-      // getOrderByID({ variables: { id: data.addItemToOrder.id } });
+      const checkoutProduct: CheckoutProduct = {
+        productID: id,
+        variantID: variantSelected?.id,
+        quantity: 1,
+        order: data.addItemToOrder,
+      };
+      setCheckoutOrders([...checkoutOrders, checkoutProduct]);
     }
+
+    // getOrderByID({ variables: { id: data.addItemToOrder.id } });
   }, [error, data]);
 
   return (
