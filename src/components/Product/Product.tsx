@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
-import SlideList from '../SlideList/SlideList';
+import SelectComponent from '../VariantList/VariantList';
 import { ProductVariant } from '../../types/types';
 import { formatPrice } from '../../utils/price';
 
@@ -90,7 +90,7 @@ const ProductComponent = ({
         <ProductImage src={productImage} loading="lazy" />
         <HorizontalLine />
         <ProductTitle>{productTitle}</ProductTitle>
-        <SlideList
+        <SelectComponent
           variantSelected={variantSelected}
           setVariant={setVariantSelected}
           variants={variants}

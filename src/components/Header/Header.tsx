@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Input } from '../Input/Input';
-import cartPNG from '../assets/cart_shopping.svg';
+import cartPNG from '../../assets/cart_shopping.svg';
 // import cart from '../assets/cart-svgrepo-com.svg';
 const HeaderStyle = styled.header`
   background: red;
