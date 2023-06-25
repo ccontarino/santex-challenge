@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import Product from './Product/Product';
+import Product from '../Product/Product';
 import { useQuery } from '@apollo/client';
 import { useEffect } from 'react';
-import { GET_PRODUCTS } from '../services/ProductQuery';
-import { Product as ProductData } from '../Interface/Product';
-import Loading from './Loading/Loading';
+import { GET_PRODUCTS } from '../../graphql/queries';
+import { Product as ProductData } from '../../Interface/Product';
+import Loading from '../Loading/Loading';
 
 const Container = styled.div`
   display: grid;
