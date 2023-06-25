@@ -8,10 +8,8 @@ function App() {
     <>
       <MyContextProvider>
         <Header />
-        <div>
-          <ProductList />
-        </div>
-        <CheckoutSideBar></CheckoutSideBar>
+        <ProductList />
+        <CheckoutSideBar />
       </MyContextProvider>
     </>
   );

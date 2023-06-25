@@ -8,12 +8,12 @@ const spin = keyframes`
 `;
 
 const LoadingSpinner = styled.div`
-  border: 16px solid #f3f3f3; /* color del borde */
-  border-top: 16px solid #3498db; /* color del borde superior */
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #3498db;
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  animation: ${spin} 2s linear infinite; /* animación */
+  animation: ${spin} 2s linear infinite;
 `;
 const LoadingContainer = styled.div`
   display: flex;
@@ -29,5 +29,3 @@ export default function Loading() {
     </LoadingSpinner>
   );
 }
-
-// export default Loading;

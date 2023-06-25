@@ -68,7 +68,6 @@ interface ProductComponentProps {
   productImage?: string;
   productDescription?: string;
   productTitle?: string;
-  productPrice?: number;
   id?: number;
   variants?: ProductVariant[];
 }
@@ -77,11 +76,9 @@ const ProductComponent = ({
   productImage,
   productDescription,
   productTitle,
-  productPrice,
   variants = [],
   id,
 }: ProductComponentProps) => {
-  const [imageBackground, setImageBackground] = React.useState('');
   const [variantSelected, setVariantSelected] = React.useState(variants[0]);
 
   return (
