@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 import SlideList from '../SlideList/SlideList';
 import { ProductVariant } from '../../types/types';
+import { formatPrice } from '../../utils/price';
 
 const ProductContainer = styled.div`
   width: 250px;
@@ -99,7 +100,7 @@ const ProductComponent = ({
         <ProductDescription>{productDescription}</ProductDescription>
         <PriceContainer>
           <CardPrice>{` Buy $${
-            variantSelected ? variantSelected.price : ''
+            variantSelected ? formatPrice(variantSelected.price) : ''
           }`}</CardPrice>
         </PriceContainer>
       </ProductContent>

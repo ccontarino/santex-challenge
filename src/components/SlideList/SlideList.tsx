@@ -5,14 +5,22 @@ import { ProductVariant } from '../../types/types';
 interface SelectComponentProps {
   variants?: ProductVariant[];
   variantSelected?: ProductVariant;
-  setVariant?: Function;
+  setVariant: Function;
 }
 
-function SelectComponent({ variants, variantSelected }: SelectComponentProps) {
+function SelectComponent({
+  variants,
+  variantSelected,
+  setVariant,
+}: SelectComponentProps) {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleSelectChange = (event: any) => {
     setSelectedOption(event.target.value);
+    const variant = variants?.find(
+      (variant) => variant.id === event.target.value
+    );
+    setVariant(variant);
   };
 
   const Select = styled.select`
@@ -26,7 +34,11 @@ function SelectComponent({ variants, variantSelected }: SelectComponentProps) {
   const renderVariant = (variantProp: ProductVariant[]) => {
     return variantProp?.map((variant) => {
       return (
-        <option key={variant.id} value={variant.id}>
+        <option
+          // onClick={() => setVariant && setVariant(variant)}
+          key={variant.id}
+          value={variant.id}
+        >
           {variant.name}
         </option>
       );
