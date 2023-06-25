@@ -28,8 +28,8 @@ const afterwareLink = new ApolloLink((operation, forward) => {
     const authHeader = context.response.headers.get('Vendure-Auth-Token');
 
     if (authHeader) {
-      // localStorage.setItem('Auth-Token', authHeader);
-      saveToLocalStorage('Auth-Token', authHeader);
+      localStorage.setItem('Auth-Token', authHeader);
+      // saveToLocalStorage('Auth-Token', authHeader);
     }
     console.log('response', response);
     return response;
