@@ -1,8 +1,10 @@
-import * as React from 'react';
+import react, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import SelectComponent from '../VariantList/VariantList';
 import { ProductVariant } from '../../types/types';
 import { formatPrice } from '../../utils/price';
+import { ADD_ITEM_TO_ORDER } from '../../graphql/mutations';
+import { useMutation } from '@apollo/client';
 
 const ProductContainer = styled.div`
   width: 250px;
@@ -79,7 +81,26 @@ const ProductComponent = ({
   variants = [],
   id,
 }: ProductComponentProps) => {
-  const [variantSelected, setVariantSelected] = React.useState(variants[0]);
+  const [variantSelected, setVariantSelected] = useState(variants[0]);
+  const [addItemToOrder, { data, error }] = useMutation(ADD_ITEM_TO_ORDER);
+
+  const buyProduct = () => {
+    addItemToOrder({
+      variables: {
+        productVariantId: variantSelected?.id,
+        quantity: 1,
+      },
+    });
+  };
+
+  useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+    if (data) {
+      console.log('addItemToOrder response::', data);
+    }
+  }, [error, data]);
 
   return (
     <ProductContainer>
@@ -96,7 +117,7 @@ const ProductComponent = ({
       <ProductContent>
         <ProductDescription>{productDescription}</ProductDescription>
         <PriceContainer>
-          <CardPrice>{` Buy $${
+          <CardPrice onClick={buyProduct}>{` Buy $${
             variantSelected ? formatPrice(variantSelected.price) : ''
           }`}</CardPrice>
         </PriceContainer>
