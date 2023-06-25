@@ -3,7 +3,7 @@ import Product from '../Product/Product';
 import { useQuery } from '@apollo/client';
 import { useEffect } from 'react';
 import { GET_PRODUCTS } from '../../graphql/queries';
-import { Product as ProductData } from '../../Interface/Product';
+import { Product as ProductData } from '../../Interfaces/Product';
 import Loading from '../Loading/Loading';
 
 const Container = styled.div`
