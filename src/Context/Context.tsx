@@ -4,6 +4,7 @@ import { reducer } from './reducer';
 
 const initialState = {
   products: null as Product | null,
+  checkoutSideBarIsOpen: false as boolean,
 };
 
 interface MyContextProviderProps {

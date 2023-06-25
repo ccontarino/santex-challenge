@@ -1,1 +1,2 @@
 export const UPDATE_PRODUCTS = 'UPDATE_PRODUCTS';
+export const UPDATE_SLIDE_BAR = 'UPDATE_SLIDE_BAR';

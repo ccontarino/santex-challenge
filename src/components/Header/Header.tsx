@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { Input } from '../Input/Input';
 import cartPNG from '../../assets/cart_shopping.svg';
+import { MyContext } from '../../Context/Context';
+import { useContext } from 'react';
+import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
 // import cart from '../assets/cart-svgrepo-com.svg';
 const HeaderStyle = styled.header`
   background: red;
@@ -9,6 +12,7 @@ const HeaderStyle = styled.header`
     padding: 20px 20px;
   }
   width: 100%;
+  cursor: pointer;
   box-sizing: border-box;
 `;
 const Image = styled.img`
@@ -29,6 +33,14 @@ const Box = styled.div`
   width: 100%;
 `;
 export function Header() {
+  const {
+    dispatch,
+    state: { checkoutSideBarIsOpen },
+  } = useContext(MyContext);
+
+  const onClick = () => {
+    dispatch({ type: UPDATE_SLIDE_BAR, payload: !checkoutSideBarIsOpen });
+  };
   return (
     <HeaderStyle>
       <Box>
@@ -37,7 +49,7 @@ export function Header() {
           alt="logo"
         />
         <Input placeholder="Search.."></Input>
-        <Cart src={cartPNG} alt="cart"></Cart>
+        <Cart onClick={onClick} src={cartPNG} alt="cart"></Cart>
       </Box>
       {/* <div>$ 0</div> */}
     </HeaderStyle>
