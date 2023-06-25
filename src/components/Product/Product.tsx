@@ -47,7 +47,7 @@ const CardPrice = styled.button`
   font-size: 18px;
   text-align: right;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #f2f2f2;
   border-radius: 8px;
   &:hover {
     font-weight: bold;

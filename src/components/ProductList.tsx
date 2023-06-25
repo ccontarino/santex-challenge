@@ -9,7 +9,7 @@ import Loading from './Loading/Loading';
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 10px;
+  grid-gap: 15px;
   height: 100vh;
 `;
 const Box = styled.div`
