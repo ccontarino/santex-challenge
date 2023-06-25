@@ -10,6 +10,7 @@ export const ADD_ITEM_TO_ORDER = gql`
         state
         total
         subTotal
+        code
         totalWithTax
         currencyCode
       }

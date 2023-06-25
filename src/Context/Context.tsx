@@ -1,5 +1,5 @@
 import React, { ReactNode, createContext, useReducer } from 'react';
-import { Product } from '../Interfaces/Product';
+import { Product } from '../Interfaces/Product.Interface';
 import { reducer } from './reducer';
 
 const initialState = {

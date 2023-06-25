@@ -1,10 +1,14 @@
-import react, { useEffect, useState } from 'react';
+import react, { useContext, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import SelectComponent from '../VariantList/VariantList';
 import { ProductVariant } from '../../types/types';
 import { formatPrice } from '../../utils/price';
 import { ADD_ITEM_TO_ORDER } from '../../graphql/mutations';
-import { useMutation } from '@apollo/client';
+import { useLazyQuery, useMutation } from '@apollo/client';
+import { MyContext } from '../../Context/Context';
+import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
+import useStateWithStorage from '../../hooks/useStateWithStorage';
+import { GET_ORDER_BY_ID } from '../../graphql/queries';
 
 const ProductContainer = styled.div`
   width: 250px;
@@ -83,7 +87,16 @@ const ProductComponent = ({
 }: ProductComponentProps) => {
   const [variantSelected, setVariantSelected] = useState(variants[0]);
   const [addItemToOrder, { data, error }] = useMutation(ADD_ITEM_TO_ORDER);
-
+  const [checkoutOrders, setCheckoutOrders] = useStateWithStorage(
+    'checkoutOrders',
+    []
+  );
+  const [getOrderByID, { data: orderResponse, orderError, orderLoading }]: any =
+    useLazyQuery(GET_ORDER_BY_ID);
+  const {
+    dispatch,
+    // state: { checkoutSideBarIsOpen },
+  } = useContext(MyContext);
   const buyProduct = () => {
     addItemToOrder({
       variables: {
@@ -92,6 +105,9 @@ const ProductComponent = ({
       },
     });
   };
+  // useEffect(() => {
+  //   console.log('orderResponse::', orderResponse, orderError, orderLoading);
+  // }, [orderResponse, orderError, orderLoading]);
 
   useEffect(() => {
     if (error) {
@@ -99,6 +115,9 @@ const ProductComponent = ({
     }
     if (data) {
       console.log('addItemToOrder response::', data);
+      dispatch({ type: UPDATE_SLIDE_BAR, payload: true });
+      setCheckoutOrders([...checkoutOrders, data.addItemToOrder]);
+      // getOrderByID({ variables: { id: data.addItemToOrder.id } });
     }
   }, [error, data]);
 

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import Product from '../Product/Product';
-import { useQuery } from '@apollo/client';
+import { useLazyQuery, useQuery } from '@apollo/client';
 import { useEffect } from 'react';
 import { GET_PRODUCTS } from '../../graphql/queries';
-import { Product as ProductData } from '../../Interfaces/Product';
+import { Product as ProductData } from '../../Interfaces/Product.Interface';
 import Loading from '../Loading/Loading';
 import { MyContext } from '../../Context/Context';
 import { useContext } from 'react';
@@ -22,6 +22,7 @@ const Box = styled.div`
 
 export function ProductList() {
   const { loading, error, data } = useQuery<ProductData>(GET_PRODUCTS);
+
   const {
     dispatch,
     state: { products },
@@ -29,8 +30,6 @@ export function ProductList() {
   useEffect(() => {
     if (data) {
       dispatch({ type: UPDATE_PRODUCTS, payload: data });
-
-      // updateProducts(data);
     }
   }, [data, loading, error]);
 

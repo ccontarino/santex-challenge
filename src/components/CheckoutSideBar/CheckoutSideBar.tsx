@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { MyContext } from '../../Context/Context';
 import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
 import Close from '../Close/Close';
+import useStateWithStorage from '../../hooks/useStateWithStorage';
 
 const openAnimation = keyframes`
   from {
@@ -43,6 +44,7 @@ const CheckoutSideBar = () => {
     dispatch,
     state: { checkoutSideBarIsOpen },
   } = useContext(MyContext);
+
   // const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
