@@ -10,6 +10,7 @@ import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
 import useStateWithStorage from '../../hooks/useStateWithStorage';
 import { GET_ORDER_BY_ID } from '../../graphql/queries';
 import { CheckoutProduct } from '../../Interfaces/CheckoutProduct.Interface';
+import { deepCopyArray } from '../../utils/object';
 
 const ProductContainer = styled.div`
   width: 250px;
@@ -123,7 +124,7 @@ const ProductComponent = ({
         quantity: 1,
         order: data.addItemToOrder,
       };
-      setCheckoutOrders([...checkoutOrders, checkoutProduct]);
+      setCheckoutOrders(deepCopyArray([...checkoutOrders, checkoutProduct]));
     }
 
     // getOrderByID({ variables: { id: data.addItemToOrder.id } });

@@ -1,11 +1,14 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-interface componentNameProps {}
+interface componentNameProps {
+  index?: number;
+}
 
 const CheckoutProductContainer = styled.div`
   background-color: #fff;
   display: flex;
+  margin: 0 0 10px 0;
   width: 100%;
   height: 120px;
   border-radius: 8px;
@@ -31,13 +34,13 @@ const TitleContainer = styled.div`
   justify-content: space-between;
 `;
 
-const CheckoutProduct = (props: componentNameProps) => {
+const CheckoutProduct = ({ index }: componentNameProps) => {
   return (
     <CheckoutProductContainer>
-      <ProductImage loading='lazy' />
+      <ProductImage loading="lazy" />
       <VerticalLine />
       <TitleContainer>
-        <div>title:</div>
+        <div>title:{index}</div>
         <div>Variant:</div>
         {/* <div>Quantity</div> */}
         <div>Price:</div>
