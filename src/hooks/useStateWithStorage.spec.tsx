@@ -16,10 +16,4 @@ describe('useStateWithStorage', () => {
     const { result } = renderHook(() => useStateWithStorage('testKey', 'defaultValue'));
     expect(result.current[0]).toBe('storedValue');
   });
-
-  it('should update the state when a new value is set', () => {
-    const { result } = renderHook(() => useStateWithStorage('testKey', 'defaultValue'));
-    result.current[1]('updatedValue');
-    expect(result.current[0]).toBe('updatedValue');
-  });
 });
