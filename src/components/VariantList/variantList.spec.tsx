@@ -12,7 +12,7 @@ describe('SelectComponent', () => {
   const setVariant = jest.fn();
 
   it('should render the select component', () => {
-    const { getByLabelText } = render(
+    const { getByLabelText,...selelectComponent } = render(
       <SelectComponent
         variants={variants}
         variantSelected={variantSelected}
@@ -21,6 +21,7 @@ describe('SelectComponent', () => {
     );
     const selectElement = getByLabelText('Select a variant');
     expect(selectElement).toBeInTheDocument();
+    expect(selelectComponent).toMatchSnapshot();
   });
 
   it('should render the correct number of options', () => {
