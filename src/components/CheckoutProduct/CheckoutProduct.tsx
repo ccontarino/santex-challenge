@@ -1,4 +1,3 @@
-import * as React from 'react';
 import styled from 'styled-components';
 import { Order, ProductVariant } from '../../types/types';
 import { formatPrice } from '../../utils/price';
@@ -55,8 +54,6 @@ const CheckoutProduct = ({
   variant,
   order,
 }: componentNameProps) => {
-  console.log('variant :: ', variant);
-  console.log('variant :: ', variant);
   return (
     <CheckoutProductContainer>
       <ProductImage src={productImage} loading="lazy" />
