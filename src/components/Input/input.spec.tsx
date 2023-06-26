@@ -16,9 +16,13 @@ describe('Input', () => {
 
   it('calls onChange when input value changes', () => {
     const onChange = jest.fn();
-    const { getByRole } = render(<Input onChange={onChange} />);
+    const { getByRole, ...inputComponent } = render(
+      <Input onChange={onChange} />
+    );
+
     const input = getByRole('textbox');
     fireEvent.change(input, { target: { value: 'test' } });
+    expect(inputComponent).toMatchSnapshot();
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
