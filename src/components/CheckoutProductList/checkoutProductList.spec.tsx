@@ -34,12 +34,12 @@ describe('CheckoutProductList', () => {
   const contextValue = { dispatch, state };
 
   it('renders a list of checkout products', () => {
-    render(
+    const checkoutProductList = render(
       <MyContext.Provider value={contextValue}>
         <CheckoutProductList />
       </MyContext.Provider>
     );
-
+    expect(checkoutProductList).toMatchSnapshot();
     expect(screen.getByText('Product 1')).toBeInTheDocument();
     expect(screen.getByText('Product 2')).toBeInTheDocument();
   });
@@ -54,5 +54,4 @@ describe('CheckoutProductList', () => {
     expect(screen.getByText('Variant 1')).toBeInTheDocument();
     expect(screen.getByText('Variant 2')).toBeInTheDocument();
   });
-
 });

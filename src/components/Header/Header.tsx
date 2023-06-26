@@ -51,7 +51,6 @@ export function Header() {
         <Input placeholder="Search.."></Input>
         <Cart onClick={onClick} src={cartPNG} alt="cart"></Cart>
       </Box>
-      {/* <div>$ 0</div> */}
     </HeaderStyle>
   );
 }

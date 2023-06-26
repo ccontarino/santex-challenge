@@ -30,12 +30,12 @@ describe('CheckoutSideBar', () => {
   });
 
   it('should render the component', () => {
-    render(
+  const checkoutSideBar =  render(
       <MyContext.Provider value={{ dispatch: mockDispatch, state: mockState }}>
         <CheckoutSideBar />
       </MyContext.Provider>
     );
-
+    expect(checkoutSideBar).toMatchSnapshot();
     expect(screen.getByText('Order Checkout')).toBeInTheDocument();
     expect(screen.getByText('SubTotal:')).toBeInTheDocument();
     expect(screen.getByText('Total with Taxes:')).toBeInTheDocument();
