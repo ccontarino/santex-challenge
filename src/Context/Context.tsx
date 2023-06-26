@@ -16,7 +16,7 @@ interface MyContextProviderProps {
 
 const MyContext = createContext({
   state: initialState,
-  dispatch: (action: any) => {},
+  dispatch: (value: any) => {},
   setCheckoutOrders: (value: checkoutProductInterface[]) => {},
 });
 
