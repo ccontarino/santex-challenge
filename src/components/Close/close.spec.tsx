@@ -4,7 +4,8 @@ import Close from './Close';
 
 describe('Close Render', () => {
   it('should render the component', () => {
-    const { getByRole } = render(<Close onClick={() => {}} />);
+    const { getByRole, ...closeComponent } = render(<Close onClick={() => {}} />);
+    expect(closeComponent).toMatchSnapshot();
     const closeButton = getByRole('button');
     expect(closeButton).toBeInTheDocument();
   });
@@ -16,5 +17,4 @@ describe('Close Render', () => {
     fireEvent.click(closeButton);
     expect(onClick).toHaveBeenCalled();
   });
-
 });

@@ -19,7 +19,7 @@ const mockVariants: ProductVariant[] = [
 
 describe('ProductComponent', () => {
   it('renders product title, image, description, variant selector and price', () => {
-    render(
+    const product = render(
       <MockedProvider>
         <ProductComponent
           id="1"
@@ -30,6 +30,7 @@ describe('ProductComponent', () => {
         />
       </MockedProvider>
     );
+    expect(product).toMatchSnapshot();
 
     expect(screen.getByText('Product Title')).toBeInTheDocument();
 

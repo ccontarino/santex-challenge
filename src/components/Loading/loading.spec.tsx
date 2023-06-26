@@ -4,8 +4,9 @@ import Loading from './Loading';
 
 describe('Loading component', () => {
   it('renders without crashing', () => {
-    render(<Loading />);
+    const loading = render(<Loading />);
     const element = screen.getByTestId('loading-spinner');
     expect(element).toBeInTheDocument();
+    expect(loading).toMatchSnapshot();
   });
 });

@@ -34,7 +34,6 @@ function SelectComponent({
     return variantProp?.map((variant, index) => {
       return (
         <option
-          // onClick={() => setVariant && setVariant(variant)}
           key={variant.id}
           value={variant.id}
         >

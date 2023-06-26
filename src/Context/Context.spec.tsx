@@ -4,11 +4,12 @@ import { MyContext, MyContextProvider } from './Context';
 
 describe('MyContextProvider', () => {
   it('renders without crashing', () => {
-    render(
+    const MyContext = render(
       <MyContextProvider>
         <div>Test</div>
       </MyContextProvider>
     );
+    expect(MyContext).toMatchSnapshot();
   });
 
   it('passes the correct value to the context', () => {
