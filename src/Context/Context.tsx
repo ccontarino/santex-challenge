@@ -3,6 +3,7 @@ import { Product } from '../Interfaces/Product.Interface';
 import { reducer } from './reducer';
 import { CheckoutProduct as checkoutProductInterface } from '../Interfaces/CheckoutProduct.Interface';
 import useStateWithStorage from '../hooks/useStateWithStorage';
+import { CHECKOUT_ORDERS } from './constantsContext';
 const initialState = {
   products: null as Product | null,
   checkoutSideBarIsOpen: false as boolean,
@@ -23,7 +24,7 @@ const MyContextProvider = ({ children }: MyContextProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [checkoutOrders, setCheckoutOrders] = useStateWithStorage<
     checkoutProductInterface[]
-  >('checkoutOrders', []);
+  >(CHECKOUT_ORDERS, []);
 
   return (
     <MyContext.Provider
