@@ -3,8 +3,6 @@ import styled, { keyframes } from 'styled-components';
 import { MyContext } from '../../Context/Context';
 import { UPDATE_SLIDE_BAR } from '../../Context/constantsContext';
 import Close from '../Close/Close';
-import useStateWithStorage from '../../hooks/useStateWithStorage';
-import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
 import CheckoutProductList from '../CheckoutProductList/CheckoutProductList';
 import { formatPrice } from '../../utils/price';
 
@@ -86,9 +84,6 @@ const CheckoutSideBar = () => {
         <span>{`Total with Taxes:`}</span>
         <span>{formatPrice(totalCostWithTaxes())}</span>
       </Total>
-
-      {/* <div>{`Total With Taxes:   `}</div>
-      <div>${formatPrice(totalCostWithTaxes())}</div> */}
     </CheckoutSideBarWrapper>
   );
 };
