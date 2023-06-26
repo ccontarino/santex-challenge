@@ -5,12 +5,14 @@ import useStateWithStorage from '../../hooks/useStateWithStorage';
 import styled from 'styled-components';
 import { MyContext } from '../../Context/Context';
 
+const ContainerProducts = styled.div`
+  height: 80%;
+  // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+`;
 interface CheckoutProductListProps {}
 
 const CheckoutProductList = (props: CheckoutProductListProps) => {
-  // const [checkoutOrders, setCheckoutOrders] = useStateWithStorage<
-  //   checkoutProductInterface[]
-  // >('checkoutOrders', []);
   const {
     dispatch,
     state: { checkoutSideBarIsOpen, products, checkoutOrders },
@@ -26,14 +28,10 @@ const CheckoutProductList = (props: CheckoutProductListProps) => {
     return products?.products?.items.find((product) => product.id === id);
   };
 
-  const ContainerProducts = styled.div`
-    height: 80%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
-    overflow-y: auto;
-  `;
   useEffect(() => {
-    console.log('checkoutOrders::', checkoutOrders.length);
+    console.log('checkoutOrders ::', checkoutOrders);
   }, [checkoutOrders]);
+
   return (
     <ContainerProducts>{renderProducts(checkoutOrders)}</ContainerProducts>
   );
