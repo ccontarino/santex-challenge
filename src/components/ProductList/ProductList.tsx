@@ -43,7 +43,7 @@ export function ProductList() {
                 key={id + index}
                 productTitle={name}
                 productDescription={description}
-                productImage={assets[0]?.source}
+                productImage={assets[0]?.preview}
                 variants={variants}
                 id={id}
               />

@@ -1,8 +1,17 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { Order, ProductVariant } from '../../types/types';
+import { formatPrice } from '../../utils/price';
 
 interface componentNameProps {
   index?: number;
+  name?: string;
+  productImage?: string | undefined;
+  productDescription?: string;
+  productTitle?: string;
+  id: string | undefined;
+  variant?: ProductVariant;
+  order?: Order;
 }
 
 const CheckoutProductContainer = styled.div`
@@ -18,7 +27,7 @@ const CheckoutProductContainer = styled.div`
 const ProductImage = styled.img`
   height: 100%;
   padding: 10px;
-  width: 50%;
+  flex: 1;
   border-radius: 8px;
   object-fit: cover;
 `;
@@ -30,20 +39,29 @@ const VerticalLine = styled.div`
 const TitleContainer = styled.div`
   padding: 8px;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-const CheckoutProduct = ({ index }: componentNameProps) => {
+const CheckoutProduct = ({
+  productImage,
+  name,
+  variant,
+  order,
+}: componentNameProps) => {
+  console.log('variant :: ', variant);
+  console.log('variant :: ', variant);
   return (
     <CheckoutProductContainer>
-      <ProductImage loading="lazy" />
+      <ProductImage src={productImage} loading="lazy" />
       <VerticalLine />
       <TitleContainer>
-        <div>title:{index}</div>
-        <div>Variant:</div>
-        {/* <div>Quantity</div> */}
-        <div>Price:</div>
+        <div>{name}</div>
+        <span>
+          <div>Variant:{variant?.name}</div>
+        </span>
+        <div>Price:{formatPrice(variant?.price)}</div>
       </TitleContainer>
     </CheckoutProductContainer>
   );

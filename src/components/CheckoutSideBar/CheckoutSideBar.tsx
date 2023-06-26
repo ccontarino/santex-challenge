@@ -58,8 +58,6 @@ const CheckoutSideBar = () => {
     state: { checkoutSideBarIsOpen, checkoutOrders },
   } = useContext(MyContext);
 
-  // const [isOpen, setIsOpen] = useState(false);
-
   const handleToggle = () => {
     dispatch({ type: UPDATE_SLIDE_BAR, payload: !checkoutSideBarIsOpen });
   };
@@ -77,9 +75,7 @@ const CheckoutSideBar = () => {
   return (
     <CheckoutSideBarWrapper isOpen={checkoutSideBarIsOpen}>
       <Close onClick={handleToggle}></Close>
-      {/* <ToggleButton onClick={handleToggle}>Toggle</ToggleButton> */}
       <h2>Order Checkout</h2>
-      {/* <CheckoutProduct /> */}
       <CheckoutProductList />
 
       <Total>
