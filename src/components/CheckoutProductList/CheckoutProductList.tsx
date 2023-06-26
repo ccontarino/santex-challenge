@@ -8,12 +8,12 @@ import { MyContext } from '../../Context/Context';
 interface CheckoutProductListProps {}
 
 const CheckoutProductList = (props: CheckoutProductListProps) => {
-  const [checkoutOrders, setCheckoutOrders] = useStateWithStorage<
-    checkoutProductInterface[]
-  >('checkoutOrders', []);
+  // const [checkoutOrders, setCheckoutOrders] = useStateWithStorage<
+  //   checkoutProductInterface[]
+  // >('checkoutOrders', []);
   const {
     dispatch,
-    state: { checkoutSideBarIsOpen, products },
+    state: { checkoutSideBarIsOpen, products, checkoutOrders },
   } = useContext(MyContext);
 
   const renderProducts = (checkoutOrdersProp: any) => {

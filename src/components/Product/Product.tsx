@@ -89,15 +89,14 @@ const ProductComponent = ({
 }: ProductComponentProps) => {
   const [variantSelected, setVariantSelected] = useState(variants[0]);
   const [addItemToOrder, { data, error }] = useMutation(ADD_ITEM_TO_ORDER);
-  const [checkoutOrders, setCheckoutOrders] = useStateWithStorage<
-    CheckoutProduct[]
-  >('checkoutOrders', []);
 
   const [getOrderByID, { data: orderResponse, orderError, orderLoading }]: any =
     useLazyQuery(GET_ORDER_BY_ID);
   const {
     dispatch,
     // state: { checkoutSideBarIsOpen },
+    state: { checkoutOrders },
+    setCheckoutOrders,
   } = useContext(MyContext);
   const buyProduct = () => {
     addItemToOrder({
