@@ -97,7 +97,7 @@ const ProductComponent = ({
     state: { checkoutOrders },
     setCheckoutOrders,
   } = useContext(MyContext);
-  
+
   const buyProduct = () => {
     addItemToOrder({
       variables: {
@@ -126,8 +126,6 @@ const ProductComponent = ({
 
       setCheckoutOrders([...checkoutOrders, checkoutProduct]);
     }
-
-    // getOrderByID({ variables: { id: data.addItemToOrder.id } });
   }, [error, data]);
 
   return (
