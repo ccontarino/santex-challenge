@@ -43,6 +43,11 @@ const TitleContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 const CheckoutProduct = ({
   productImage,
@@ -57,11 +62,12 @@ const CheckoutProduct = ({
       <ProductImage src={productImage} loading="lazy" />
       <VerticalLine />
       <TitleContainer>
-        <div>{name}</div>
-        <span>
-          <div>Variant:{variant?.name}</div>
-        </span>
-        <div>Price:{formatPrice(variant?.price)}</div>
+        <TextContainer>{name}</TextContainer>
+        <TextContainer>{variant?.name}</TextContainer>
+        <TextContainer>
+          <span>Price:</span>
+          {`$${formatPrice(variant?.price)}`}
+        </TextContainer>
       </TitleContainer>
     </CheckoutProductContainer>
   );
