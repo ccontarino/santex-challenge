@@ -37,11 +37,11 @@ const CheckoutProductList = (props: CheckoutProductListProps) => {
         };
         return checkoutProductWithVariants;
       });
-      console.log(
-        'listProducts',
-        listProducts
-        // listProducts.flatMap((product: any) => product)
-      );
+      // console.log(
+      //   'listProducts',
+      //   listProducts
+      //   // listProducts.flatMap((product: any) => product)
+      // );
       return listProducts.map(
         (
           {
