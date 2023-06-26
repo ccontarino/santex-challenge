@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Close from './Close';
 
-describe('Close', () => {
+describe('Close Render', () => {
   it('should render the component', () => {
     const { getByRole } = render(<Close onClick={() => {}} />);
     const closeButton = getByRole('button');
