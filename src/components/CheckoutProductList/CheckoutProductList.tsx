@@ -24,7 +24,7 @@ const CheckoutProductList = (props: CheckoutProductListProps) => {
 
   const renderProducts = (checkoutOrdersProp: any) => {
     if (checkoutOrdersProp.length > 0) {
-      let listProducts = checkoutOrdersProp.map((checkoutProduct: any) => {
+      const listProducts = checkoutOrdersProp.map((checkoutProduct: any) => {
         const product: Product | undefined = findProduct(
           checkoutProduct.productID
         );
@@ -37,11 +37,6 @@ const CheckoutProductList = (props: CheckoutProductListProps) => {
         };
         return checkoutProductWithVariants;
       });
-      // console.log(
-      //   'listProducts',
-      //   listProducts
-      //   // listProducts.flatMap((product: any) => product)
-      // );
       return listProducts.map(
         (
           {
@@ -69,21 +64,11 @@ const CheckoutProductList = (props: CheckoutProductListProps) => {
         }
       );
     }
-
-    // listProducts = listProducts.flatMap((product) => product);
-
-    // return checkoutOrdersProp.map((checkoutProduct: any, index: number) => {
-    //   return <CheckoutProduct index={index} key={checkoutProduct.productID} />;
-    // });
   };
 
   const findProduct = (id: string) => {
     return products?.products?.items.find((product) => product.id === id);
   };
-
-  useEffect(() => {
-    console.log('checkoutOrders ::', checkoutOrders);
-  }, [checkoutOrders]);
 
   return (
     <ContainerProducts>{renderProducts(checkoutOrders)}</ContainerProducts>
