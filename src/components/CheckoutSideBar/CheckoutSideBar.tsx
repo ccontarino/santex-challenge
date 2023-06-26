@@ -80,11 +80,11 @@ const CheckoutSideBar = () => {
 
       <Total>
         <span>{`SubTotal:`}</span>
-        <span>${formatPrice(totalCost())}</span>
+        <span>{formatPrice(totalCost())}</span>
       </Total>
       <Total>
         <span>{`Total with Taxes:`}</span>
-        <span>${formatPrice(totalCostWithTaxes())}</span>
+        <span>{formatPrice(totalCostWithTaxes())}</span>
       </Total>
 
       {/* <div>{`Total With Taxes:   `}</div>

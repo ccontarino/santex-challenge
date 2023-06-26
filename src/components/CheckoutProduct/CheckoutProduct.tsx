@@ -63,7 +63,7 @@ const CheckoutProduct = ({
         <TextContainer>{variant?.name}</TextContainer>
         <TextContainer>
           <span>Price:</span>
-          {`$${formatPrice(variant?.price)}`}
+          {`${formatPrice(variant?.price)}`}
         </TextContainer>
       </TitleContainer>
     </CheckoutProductContainer>

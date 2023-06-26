@@ -145,7 +145,7 @@ const ProductComponent = ({
       <ProductContent>
         <ProductDescription>{productDescription}</ProductDescription>
         <PriceContainer>
-          <CardPrice onClick={buyProduct}>{` Buy $${
+          <CardPrice onClick={buyProduct}>{` Buy ${
             variantSelected ? formatPrice(variantSelected.price) : ''
           }`}</CardPrice>
         </PriceContainer>
