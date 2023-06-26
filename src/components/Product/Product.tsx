@@ -124,7 +124,8 @@ const ProductComponent = ({
         quantity: 1,
         order: data.addItemToOrder,
       };
-      setCheckoutOrders(deepCopyArray([...checkoutOrders, checkoutProduct]));
+
+      setCheckoutOrders([...checkoutOrders, checkoutProduct]);
     }
 
     // getOrderByID({ variables: { id: data.addItemToOrder.id } });
