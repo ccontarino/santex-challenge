@@ -78,6 +78,7 @@ interface ProductComponentProps {
   productTitle?: string;
   id: string;
   variants?: ProductVariant[];
+  key: string;
 }
 
 const ProductComponent = ({
@@ -86,6 +87,7 @@ const ProductComponent = ({
   productTitle,
   variants = [],
   id,
+  key
 }: ProductComponentProps) => {
   const [variantSelected, setVariantSelected] = useState(variants[0]);
   const [addItemToOrder, { data, error }] = useMutation(ADD_ITEM_TO_ORDER);
@@ -129,7 +131,7 @@ const ProductComponent = ({
   }, [error, data]);
 
   return (
-    <ProductContainer>
+    <ProductContainer key={key}>
       <div style={{ marginBottom: 10 }}>
         <ProductImage src={productImage} loading="lazy" />
         <HorizontalLine />
