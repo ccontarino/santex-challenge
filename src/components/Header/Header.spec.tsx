@@ -16,16 +16,6 @@ describe('Header', () => {
     expect(logo).toBeInTheDocument();
   });
 
-  it('should render the search input', () => {
-    const { getByPlaceholderText } = render(
-      <MyContext.Provider value={{ state: {}, dispatch: jest.fn() }}>
-        <Header />
-      </MyContext.Provider>
-    );
-    const searchInput = getByPlaceholderText('Search..');
-    expect(searchInput).toBeInTheDocument();
-  });
-
   it('should render the cart icon', () => {
     const { getByAltText } = render(
       <MyContext.Provider value={{ state: {}, dispatch: jest.fn() }}>

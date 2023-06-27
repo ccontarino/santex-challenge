@@ -1,63 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render the logo 1`] = `
+exports[`CartNumber renders without crashing 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <header
-        class="sc-fqkvVR icEIqX"
+      <div
+        class="sc-aXZVg eNIeIK"
       >
-        <div
-          class="sc-gsFSXq cXDafQ"
-        >
-          <img
-            alt="logo"
-            class="sc-dcJsrY fsYcBu"
-            src="https://santex.wpengine.com/wp-content/uploads/2019/02/logo-santex@3x.png"
-          />
-          <img
-            alt="cart"
-            class="sc-iGgWBj bCKWSn"
-            src="cart_shopping.svg"
-          />
-          <div
-            class="sc-aXZVg eNIeIK"
-          >
-            <i
-              class="sc-gEvEer eDaqKm fas fa-shopping-cart"
-            />
-          </div>
-        </div>
-      </header>
+        <i
+          class="sc-gEvEer eDaqKm fas fa-shopping-cart"
+        />
+      </div>
     </div>
   </body>,
   "container": <div>
-    <header
-      class="sc-fqkvVR icEIqX"
+    <div
+      class="sc-aXZVg eNIeIK"
     >
-      <div
-        class="sc-gsFSXq cXDafQ"
-      >
-        <img
-          alt="logo"
-          class="sc-dcJsrY fsYcBu"
-          src="https://santex.wpengine.com/wp-content/uploads/2019/02/logo-santex@3x.png"
-        />
-        <img
-          alt="cart"
-          class="sc-iGgWBj bCKWSn"
-          src="cart_shopping.svg"
-        />
-        <div
-          class="sc-aXZVg eNIeIK"
-        >
-          <i
-            class="sc-gEvEer eDaqKm fas fa-shopping-cart"
-          />
-        </div>
-      </div>
-    </header>
+      <i
+        class="sc-gEvEer eDaqKm fas fa-shopping-cart"
+      />
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -84,6 +48,7 @@ Object {
   "getAllByTestId": [Function],
   "getAllByText": [Function],
   "getAllByTitle": [Function],
+  "getByAltText": [Function],
   "getByDisplayValue": [Function],
   "getByLabelText": [Function],
   "getByPlaceholderText": [Function],

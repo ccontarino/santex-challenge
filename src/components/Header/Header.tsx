@@ -59,7 +59,7 @@ export function Header() {
         />
         {/* <Input placeholder="Search.."></Input> */}
         <Cart onClick={onClick} src={cartPNG} alt="cart"></Cart>
-        <CartNumber numItems={checkoutOrders.length} />
+        <CartNumber numItems={checkoutOrders?.length} />
       </Box>
     </HeaderStyle>
   );
