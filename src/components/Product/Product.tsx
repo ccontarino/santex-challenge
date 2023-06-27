@@ -46,6 +46,9 @@ const ProductDescription = styled.div`
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  &:hover {
+    overflow: scroll;
+  }
 `;
 const ProductTitle = styled.div`
   font-size: 1em;
@@ -88,7 +91,7 @@ const ProductComponent = ({
   productTitle,
   variants = [],
   id,
-  key
+  key,
 }: ProductComponentProps) => {
   const [variantSelected, setVariantSelected] = useState(variants[0]);
   const [addItemToOrder, { data, error }] = useMutation(ADD_ITEM_TO_ORDER);
