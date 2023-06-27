@@ -28,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate-changelog": "conventional-changelog -p react -i CHANGELOG.md -s"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +50,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@types/styled-components": "^5.1.9"
   }
 }
