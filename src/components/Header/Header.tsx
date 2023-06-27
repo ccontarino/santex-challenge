@@ -37,6 +37,9 @@ const Cart = styled.img`
 const Box = styled.div`
   display: flex;
   width: 100%;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 export function Header() {
   const {
