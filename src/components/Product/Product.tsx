@@ -23,6 +23,7 @@ const ProductContainer = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   &:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
   }
   background-color: #fff;
   cursor: pointer;
